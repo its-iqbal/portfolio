@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird Game | Mohammad Iqbal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* --- PAGE SPECIFIC STYLES --- */
+        .details-hero {
+            padding-top: 12rem;
+            text-align: center;
+            padding-bottom: 2rem;
+        }
+
+        .details-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        section.section {
+            padding-top: 0 !important;
+            min-height: auto;
+        }
+
+        .details-content {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            background: var(--second-bg-color);
+            padding: 3rem;
+            border-radius: 2rem;
+            box-shadow: 0 0 1rem rgba(0,0,0,0.5);
+        }
+
+        .tech-stack-badges span {
+            display: inline-block;
+            background: var(--bg-color);
+            border: 1px solid var(--main-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            margin: 0.5rem;
+            font-size: 1.4rem;
+            transition: 0.3s;
+        }
+
+        .tech-stack-badges span:hover {
+            background: var(--main-color);
+            color: var(--bg-color);
+            cursor: default;
+        }
+
+        .credentials-box {
+            background: rgba(0, 238, 255, 0.05);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-top: 2rem;
+            border-left: 4px solid var(--main-color);
+        }
+
+        .credentials-box h4 {
+            font-size: 1.8rem;
+            color: var(--main-color);
+            margin-bottom: 1rem;
+        }
+
+        /* --- CAROUSEL STYLING --- */
+        .carousel-container {
+            width: 70%;
+            margin: 3rem auto 4rem auto;
+            border: 2px solid var(--main-color);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 1.5rem rgba(0, 238, 255, 0.3);
+            background: #000;
+        }
+
+        .carousel-slide {
+            display: flex;
+            width: 100%;
+            height: 500px; /* Tall height for mobile game view */
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            background: #000;
+            flex-shrink: 0;
+        }
+
+        /* --- BUTTON STYLES --- */
+        #prevBtn, #nextBtn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: rgba(31, 36, 45, 0.6); 
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--main-color);
+            color: var(--main-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        #prevBtn:hover, #nextBtn:hover {
+            background: var(--main-color);
+            color: var(--second-bg-color);
+            box-shadow: 0 0 15px var(--main-color);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        #prevBtn { left: 20px; }
+        #nextBtn { right: 20px; }
+
+        @media(max-width: 768px) {
+            .carousel-container { width: 95%; margin-bottom: 2rem; }
+            .carousel-slide { height: 400px; }
+            .details-hero { padding-top: 10rem; }
+            #prevBtn, #nextBtn { width: 40px; height: 40px; font-size: 1.4rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Iqbal<span>.dev</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#projects">Back to Projects</a></li>
+        </ul>
+    </nav>
+
+    <section class="details-hero">
+        <h1 class="details-title">Flappy Bird Clone</h1>
+        <p style="font-size: 1.6rem; color: #ccc;">2D Mobile Game developed with Flutter & Dart</p>
+
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="images/flappy_bird/1.png" id="lastClone" alt="Last Clone">
+                
+                <img src="images/flappy_bird/1.png" alt="Game Menu">
+                <img src="images/flappy_bird/1.png" alt="Game Menu">
+        
+                <img src="images/flappy_bird/1.png" id="firstClone" alt="First Clone">
+            </div>
+
+            <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="details-content">
+            <h2>Project Description</h2>
+            <p style="font-size: 1.6rem; margin-top: 1rem; line-height: 1.8;">
+                This project is a complete recreation of the classic "Flappy Bird" game. It showcases my ability to implement game physics, collision detection, and state management within the Flutter framework.
+            </p>
+            <p style="font-size: 1.6rem; margin-top: 1rem; line-height: 1.8;">
+                Key features include a custom gravity simulation engine, infinite scrolling backgrounds, high-score tracking using local storage, and responsive touch controls. The game logic handles object collisions precisely to trigger the "Game Over" state.
+            </p>
+
+            <h3 style="margin-top: 3rem; font-size: 2.2rem;">Technologies Used</h3>
+            <div class="tech-stack-badges">
+                <span>Flutter</span>
+                <span>Dart</span>
+                <span>Game Loop Logic</span>
+                <span>Collision Detection</span>
+                <span>Shared Preferences (Scores)</span>
+            </div>
+
+            <div class="credentials-box">
+                <h4><i class="fas fa-gamepad"></i> Play The Game</h4>
+                <p style="font-size: 1.4rem; margin-bottom: 1.5rem;">
+                    The game is hosted on Netlify. You can play it right now in your browser!
+                </p>
+
+                <div style="text-align: center; margin-top: 2.5rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                    
+                    <a href="https://mellow-nougat-c7d6f9.netlify.app/" target="_blank" class="btn">
+                        <i class="fas fa-play"></i> Start Game
+                    </a>
+
+                    <a href="https://github.com/its-iqbal/flappybird-app" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> See Source Code
+                    </a>
+                    
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2025 by Mohammad Iqbal</p>
+        </div>
+    </footer>
+
+    <script>
+        const carouselSlide = document.querySelector('.carousel-slide');
+        const carouselImages = document.querySelectorAll('.carousel-slide img');
+
+        // Buttons
+        const prevBtn = document.querySelector('#prevBtn');
+        const nextBtn = document.querySelector('#nextBtn');
+
+        // Counter
+        let counter = 1;
+        
+        window.onload = function() {
+            const size = carouselImages[0].clientWidth;
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+            nextBtn.addEventListener('click', () => {
+                if (counter >= carouselImages.length - 1) return;
+                const size = carouselImages[0].clientWidth;
+                carouselSlide.style.transition = "transform 0.4s ease-in-out";
+                counter++;
+                carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (counter <= 0) return;
+                const size = carouselImages[0].clientWidth;
+                carouselSlide.style.transition = "transform 0.4s ease-in-out";
+                counter--;
+                carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+            });
+
+            carouselSlide.addEventListener('transitionend', () => {
+                const size = carouselImages[0].clientWidth;
+                if (carouselImages[counter].id === 'lastClone') {
+                    carouselSlide.style.transition = "none";
+                    counter = carouselImages.length - 2;
+                    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+                }
+                if (carouselImages[counter].id === 'firstClone') {
+                    carouselSlide.style.transition = "none";
+                    counter = carouselImages.length - counter;
+                    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                const newSize = carouselImages[0].clientWidth;
+                carouselSlide.style.transition = "none";
+                carouselSlide.style.transform = 'translateX(' + (-newSize * counter) + 'px)';
+            });
+        };
+    </script>
+</body>
+
+</html>
